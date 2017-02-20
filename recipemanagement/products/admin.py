@@ -1,12 +1,10 @@
 from django.contrib import admin
 
-from .models import Recipe
+from .models import Recipe, Product
 
 class RecipeAdmin(admin.ModelAdmin):
     list_display = (
         'name',
-        'description',
-        'img_url',
     )
     list_filter = (
         'created_time',
@@ -14,11 +12,28 @@ class RecipeAdmin(admin.ModelAdmin):
         'active',
     )
     search_fields = (
-        'title',
-        'description',
+            'name',
+    )
+    readonly_fields = (
+        'created_time',
+        'modified_time',
+    )
+class ProductAdmin(admin.ModelAdmin):
+    list_display = (
+        'product',
+    )
+    list_filter = (
+        'created_time',
+        'modified_time',
+        'active',
+    )
+    search_fields = (
+            'product',
     )
     readonly_fields = (
         'created_time',
         'modified_time',
     )
 admin.site.register(Recipe, RecipeAdmin)
+admin.site.register(Product, ProductAdmin)
+
