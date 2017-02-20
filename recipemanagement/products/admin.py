@@ -21,6 +21,8 @@ class RecipeAdmin(admin.ModelAdmin):
 class ProductAdmin(admin.ModelAdmin):
     list_display = (
         'product',
+        'modified_time',
+        'price'
     )
     list_filter = (
         'created_time',
