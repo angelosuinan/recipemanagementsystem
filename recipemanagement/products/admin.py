@@ -20,7 +20,7 @@ class RecipeAdmin(admin.ModelAdmin):
     )
 class ProductAdmin(admin.ModelAdmin):
     list_display = (
-        'product',
+        'name',
         'modified_time',
         'price'
     )
@@ -30,7 +30,7 @@ class ProductAdmin(admin.ModelAdmin):
         'active',
     )
     search_fields = (
-            'product',
+            'name',
     )
     readonly_fields = (
         'created_time',

@@ -4,7 +4,7 @@ from core.models import Base
 from decimal import Decimal
 
 class Product(Base):
-    product = models.CharField(max_length=100, unique=True)
+    name = models.CharField(max_length=100, unique=True)
     price = models.DecimalField(max_digits=1000,decimal_places=2,default=Decimal('0'))
     def __str__(self):
         return self.product
