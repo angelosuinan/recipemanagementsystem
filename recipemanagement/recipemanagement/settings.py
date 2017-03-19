@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions',
     'home',
     'core',
     'products',
@@ -82,6 +83,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'USER': 'admin',
+        'PASSWORD': 'admin',
+                                'HOST': '127.0.0.1',
+                                            'PORT': '5432',
     }
 }
 
