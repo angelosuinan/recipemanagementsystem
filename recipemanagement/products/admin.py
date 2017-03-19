@@ -5,6 +5,8 @@ from .models import Recipe, Product
 class RecipeAdmin(admin.ModelAdmin):
     list_display = (
         'name',
+        'active',
+        'modified_time',
     )
     list_filter = (
         'created_time',
@@ -22,7 +24,8 @@ class ProductAdmin(admin.ModelAdmin):
     list_display = (
         'name',
         'modified_time',
-        'price'
+        'price',
+        'active'
     )
     list_filter = (
         'created_time',
