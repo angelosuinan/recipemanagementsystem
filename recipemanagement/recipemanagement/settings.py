@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'home',
     'core',
     'products',
+    'spider',
 ]
 
 MIDDLEWARE = [
