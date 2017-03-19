@@ -1,5 +1,5 @@
 #full path and name to your csv file
-csv_filepathname="/home/suinan/projects/pyscrapy/pyscrapy/pyscrapy/x.csv"
+csv_filepathname="/home/suinan/projects/pyscrapy/pyscrapy/pyscrapy/a.csv"
 import django
 from products.models import Recipe
 from products.models import Product
@@ -7,6 +7,7 @@ import csv
 dataReader = csv.reader(open(csv_filepathname), delimiter=',', quotechar='"')
 dataReader
 
+import random
 for row in dataReader:
     recipe = Recipe()
     if row[0] == 'direction':
@@ -16,10 +17,9 @@ for row in dataReader:
         try:
             product = Product()
             product.name = pr
-            price = 42.21
+            product.price =  round(random.uniform(10.00,500),2)
             product.save()
-            recipe
-            recipe = product
+            recipe.product = product
         except django.db.utils.IntegrityError:
             pass
     recipe.name = row[1]
