@@ -17,7 +17,7 @@ for row in dataReader:
     recipe.img_url = row[3]
     recipe.prep_time = row[8]
     recipe.servings = row[7]
-    recipe.directions = row[0]
+    recipe.direction = row[0]
     recipe.ingredients = row[2]
     my_list = row[4].split(",")
     recipe.save()
