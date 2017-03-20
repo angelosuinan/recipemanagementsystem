@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'core',
     'products',
     'spider',
+    'accounts',
+    'pages',
 ]
 
 MIDDLEWARE = [
