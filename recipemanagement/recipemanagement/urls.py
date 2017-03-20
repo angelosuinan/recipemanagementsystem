@@ -22,4 +22,5 @@ urlpatterns = [
     url(r'^products/', include('products.urls', namespace='products')),
     url(r'^accounts/', include('accounts.urls', namespace='account')),
     url(r'^search/', include('pages.urls', namespace = 'pages')),
+    url(r'', include('pages.urls')),
 ]
