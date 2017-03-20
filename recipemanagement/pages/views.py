@@ -37,6 +37,7 @@ class recipe_list(View):
 			return render(request, 'home/index.html', )
 		search = Recipe.objects.filter(name__contains=query)
 		return render(request, 'recipe/recipe_list.html', {'recipes': search})
+store = ""
 class recipe_search(View):
 	query = ""
 	def get(self, request, *args, **kwargs):
@@ -45,7 +46,11 @@ class recipe_search(View):
 			self.query =self.request.GET.get('q')
 			if len(self.query) <4 :
 				return render(request, 'home/index.html', )
-		recipes_list = Recipe.objects.filter(name__contains=self.query)
+			recipes_list = Recipe.objects.filter(name__contains=self.query)
+			global store
+			store = self.query
+		else:
+			recipes_list = Recipe.objects.filter(name__contains=store)
 		paginator = Paginator(recipes_list, 10)
 		page = request.GET.get('page')
 		try:
