@@ -3,7 +3,7 @@
 
 {% block content %}
 
- <form class="inline-form" action="{% url 'pages:recipe_list' %}" method="post">
+ <form class="inline-form" action="{% url 'pages:recipe_search' %}" method="get">
                     {% csrf_token %}
         <input type="text" class="form-control clear-focus-highlight" id="q"
                         name="q" placeholder="Take a note...">
