@@ -2,7 +2,7 @@
 
 {% block content %}
 	{% for recipe in recipes %}
-		<a href="{% url 'recipe_detail' pk=recipe.pk %}">{{ recipe.name }}</a><br>
+		<a href="{% url 'pages:recipe_detail' pk=recipe.pk %}">{{ recipe.name }}</a><br>
 	{% endfor %}
 
 	<div class="pagination">
