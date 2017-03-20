@@ -1,6 +1,6 @@
-from django.shortcuts import render
 from products.models import Recipe, Product
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.shortcuts import render, get_object_or_404
 
 # Create your views here.
 
@@ -17,11 +17,6 @@ class Index(View):
     def post(self, request, *args, **kwargs):
         pass
 
-'''class recipe_list(View):
-	def get(self, request, *args, **kwargs):
-		recipes = Recipe.objects.all()
-		return render(request, 'recipe/recipe_list.html', {'recipes': recipes})'''
-
 class recipe_list(View):
 	def get(self, request, *args, **kwargs):
 		recipe_list = Recipe.objects.all()
@@ -35,5 +30,15 @@ class recipe_list(View):
 		except EmptyPage:
 		    # If page is out of range (e.g. 9999), deliver last page of results.
 		    recipes = paginator.page(paginator.num_pages)
-		print(recipes.has_next==True)
 		return render(request, 'recipe/recipe_list.html', {'recipes': recipes})
+
+
+class recipe_detail(View):
+	template_name = 'home/index.html'
+	def get(self,request, *args, **kwargs):
+		pk = kwargs.get('pk')
+		recipe = get_object_or_404(Recipe, pk=pk)
+		context = {}
+		context['recipe'] = recipe
+		context['products'] = recipe.products.all()
+		return render(request, 'recipe/recipe_detail.html', context)
