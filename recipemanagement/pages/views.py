@@ -31,6 +31,37 @@ class recipe_list(View):
 		    # If page is out of range (e.g. 9999), deliver last page of results.
 		    recipes = paginator.page(paginator.num_pages)
 		return render(request, 'recipe/recipe_list.html', {'recipes': recipes})
+	def post(self, request, *args, **kwargs):
+		query = self.request.POST.get('q')
+		if len(query) <4 :
+			return render(request, 'home/index.html', )
+		search = Recipe.objects.filter(name__contains=query)
+		return render(request, 'recipe/recipe_list.html', {'recipes': search})
+store = ""
+class recipe_search(View):
+	query = ""
+	def get(self, request, *args, **kwargs):
+		print (self.query)
+		if self.request.GET.get('q'):
+			self.query =self.request.GET.get('q')
+			if len(self.query) <4 :
+				return render(request, 'home/index.html', )
+			recipes_list = Recipe.objects.filter(name__contains=self.query)
+			global store
+			store = self.query
+		else:
+			recipes_list = Recipe.objects.filter(name__contains=store)
+		paginator = Paginator(recipes_list, 10)
+		page = request.GET.get('page')
+		try:
+		    recipes = paginator.page(page)
+		except PageNotAnInteger:
+		    # If page is not an integer, deliver first page.
+		    recipes = paginator.page(1)
+		except EmptyPage:
+		    # If page is out of range (e.g. 9999), deliver last page of results.
+		    recipes = paginator.page(paginator.num_pages)
+		return render(request, 'recipe/recipe_list.html', {'recipes': recipes})
 
 
 class recipe_detail(View):

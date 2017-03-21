@@ -2,5 +2,11 @@
 {% block title %}Home{% endblock title %}
 
 {% block content %}
-TEST
+
+ <form class="inline-form" action="{% url 'pages:recipe_search' %}" method="get">
+                    {% csrf_token %}
+        <input type="text" class="form-control clear-focus-highlight" id="q"
+                        name="q" placeholder="Take a note...">
+        <input class="btn btn-raised btn-primary btn-sm" type="submit" value="create">
+                </form>
 {% endblock content %}
