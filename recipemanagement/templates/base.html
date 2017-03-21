@@ -62,13 +62,11 @@ new WOW().init();
 
     <div id="header" class="container">
 
-        <div class="logo"> <a href="#"><img src="images/LOGO.png" alt="logo" width="165" height="74"></a> </div> <!--end of Logo-->
+        <div class="logo"> <a href="{% url 'home:index' %}"><img src="{% static 'images/logo.png' %}" alt="logo" width="165" height="74"></a> </div> <!--end of Logo-->
 
         <nav>
 
             <ul id="navigations">
-
-                <li><a href="{%  url 'home:index' %}">HOME</a></li>
 
 
                 <li><a href="{% url 'pages:recipe_list' %}">RECIPES</a></li>
@@ -82,6 +80,13 @@ new WOW().init();
             </ul>
 
         </nav>
+        <div>
+            <h5 class="wow fadeInDown" data-wow-delay="0.8s">
+                {% block user %}
+                Welcome {{ user.username }} ! (<a href="{% url 'logout' %}">Log out</a>)</h1><br>¬                                             │
+                {% endblock user %}
+            </h5>
+        </div>
 
       </div> <!--end of header-->
 
@@ -93,12 +98,11 @@ new WOW().init();
       <div id="slider" class="container">
 
            <div class="slider">
-
                         <ul class="slides">
 
                                 <li class="slide">
 
-                      	<h5 class="wow fadeInDown" data-wow-delay="0.8s">What is Tap & Shop </h5>
+                        <h5 class="wow fadeInDown" data-wow-delay="0.8s">What is Tap & Shop </h5>
 
                       	<p class="wow fadeInUp" data-wow-delay="0.8s">
                         Tap and Shop is the website where you can browse and buy recipes from all around the web.
@@ -108,7 +112,7 @@ new WOW().init();
                         Easy Efficient and Hassle Free. GO Tap and Shop Now
                         </p>
 
-                      <img src="images/slideimg.png" width="317" height="256" class="wow fadeInRight" 
+                        <img src="{% static 'images/logo.png' %}" width="317" height="256" class="wow fadeInRight" 
 
                       data-wow-delay="0.8s" alt="slide1img"> 
 
@@ -120,9 +124,10 @@ new WOW().init();
 
                     <p class="wow fadeInUp" data-wow-delay="0.8s">
                     Introducing the Recipe Search Engine. Our database holds thousands of recipes
-                    around the web, updated every day!
+                    around the web, updated every day! Browse from over 20,000 recipes and 30,000
+                    products!
                     </p>
-                      <img src="images/slideimg.png" width="317" height="256" class="wow fadeInRight" 
+                    <img src="{% static 'images/scrapy.png' %}" width="317" height="256" class="wow fadeInRight" 
 
                       data-wow-delay="0.8s" alt="slideimg2"> 
 
@@ -138,7 +143,7 @@ new WOW().init();
                         when you can buy it here. Less Hassle And feel the convinience of BOR Browse
                         Order Recieve</p>
 
-                      <img src="images/slideimg.png" width="317" height="256" class="wow fadeInRight" 
+                        <img src="{% static 'images/buy.png' %}" width="317" height="256" class="wow fadeInRight" 
 
                       data-wow-delay="0.8s" alt="slideimg2"> 
 
