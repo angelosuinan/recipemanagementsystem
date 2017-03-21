@@ -5,10 +5,13 @@
 
         {% block head_meta %}
         <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport"
+              content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="HandheldFriendly" content="true">
         {% endblock head_meta %}
-     <title>{% block title %}{% endblock title %}</title>
+     <title>{% block title %}Recipe Management{% endblock title %}</title>
 
     {% block head_fonts %}
     <!-- Material Design fonts -->
@@ -19,30 +22,314 @@
     {% endblock head_fonts %}
 
     {% block head_styles %}
-    <!-- Bootstrap -->
-    <link rel="stylesheet" type="text/css"
-                               href="{% static 'vendor/bootstrap/3.3.6/css/bootstrap.min.css' %}">
     <!-- Custom styles -->
     <link rel="stylesheet" type="text/css"
-                               href="{% static 'css/styles.css' %}">
-    {% endblock head_styles %}
+                               href="{% static 'css/style.css' %}">
 
+    <link rel="stylesheet" href="{% static 'css/animate.css'  %}">
+    {% endblock head_styles %}
+    {% block scripts %}
+    <script src="{% static 'js/jquery.js' %}"></script> 
+
+    <script src="{% static 'js/jquery.glide.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/MyJQ.js' %}"></script>
+
+    <script src="{% static 'js/jquery.localScroll.min.js' %}" type="text/javascript"></script>
+
+    <script src="{% static 'js/jquery.scrollTo.min.js' %}" type="text/javascript"></script> 
+
+    <script src="{% static 'js/wow.min.js' %}" type="text/javascript"></script>
+    <script type="text/javascript">
+
+    $(document).ready(function() {
+
+       $('#navigations').localScroll({duration:800});
+
+    });
+
+    </script>
+    <script src="{% static 'js/wow.min.js' %}"></script>
+    <script>
+
+new WOW().init();
+    </script>
+    {% endblock scripts %}
 </head>
 
 <body>
     {% block header %}
+<div class="headerwrapper">
+
+    <div id="header" class="container">
+
+        <div class="logo"> <a href="#"><img src="images/LOGO.png" alt="logo" width="165" height="74"></a> </div> <!--end of Logo-->
+
+        <nav>
+
+            <ul id="navigations">
+
+                <li><a href="#navigations">HOME</a></li>
+
+                <li> <a href="#slider">ABOUT</a></li>
+
+                <li><a href="#map">LOCATONS</a></li>
+
+                <li><a href="#bestdishes">MENU</a></li>
+
+                <li><a href="#contactus">CONTACT</a></li>
+                <li>
+                </li>
+
+            </ul>
+
+        </nav>
+
+      </div> <!--end of header-->
+
+</div> <!-- end of headerwrapper-->
     {% endblock header %}
+    {% block slider %}
+    <div class="sliderwrapper">
+
+      <div id="slider" class="container">
+
+           <div class="slider">
+
+                        <ul class="slides">
+
+                                <li class="slide">
+
+                      	<h5 class="wow fadeInDown" data-wow-delay="0.8s">What is Recipe Management? </h5>
+
+                      	<p class="wow fadeInUp" data-wow-delay="0.8s">
+                        The recipe management system is developed for the fresh department of a
+                        store. This application contains the processes for creation, maintenance, approval,
+                        storing and inactivation of the recipes. The recipe management system encompasses 
+                        the processes for the recipe management.
+                        </p>
+
+                      <img src="images/slideimg.png" width="317" height="256" class="wow fadeInRight" 
+
+                      data-wow-delay="0.8s" alt="slide1img"> 
+
+                      </li>
+
+                                  <li class="slide">
+
+                      	<h5 class="wow fadeInDown" data-wow-delay="0.8s">What is Recipe Management ? </h5>
+
+                    <p class="wow fadeInUp" data-wow-delay="0.8s">
+                    The recipes are used by Replenishment planning processes to determine ingredient and
+                    supply item requirement and plan the replenishment of the same at the stores.
+                    The fresh departments in the store will use this application. The Replenishment planning
+                    processes are used to determine the ingredients of recipe. These processes plan the
+                    replenishment of the same at the stores and supply the item requirements. These
+                    processes plan the replenishment of the same at the stores and supply the item requirements.
+                    </p>
+                      <img src="images/slideimg.png" width="317" height="256" class="wow fadeInRight" 
+
+                      data-wow-delay="0.8s" alt="slideimg2"> 
+
+                      </li>
+
+                             <li class="slide">
+
+                      	<h5 class="wow fadeInDown" data-wow-delay="0.8s">Browse Order Recieve BOR </h5>
+
+                      	<p class="wow fadeInUp" data-wow-delay="0.8s">Recipe Management System
+                        gives you the feel of shopping at your own pc or phone. Browse recipes,
+                        order them, and recieve at your doorstep. No to go around the supermarket
+                        when you can buy it here. Less Hassle And feel the convinience of BOR Browse
+                        Order Recieve</p>
+
+                      <img src="images/slideimg.png" width="317" height="256" class="wow fadeInRight" 
+
+                      data-wow-delay="0.8s" alt="slideimg2"> 
+
+                      </li>
+
+              </ul>
+
+            </div>
+
+      </div> <!-- End of Slider-->
+
+</div> <!-- end of sliderwrapper-->
+    {% endblock slider %}
+
+
+<div class="bestdisheswrapper">
+
+    <div id="bestdishes" class="container">
+      <h2 class="wow fadeInUp" data-wow-delay="0.3s">
+       {% block content_title %}
+       {% endblock content_title %}
+      </h2>
+
+      <div class="slidr">
     {% block content %}
     {% endblock content %}
-    {% block footer %}
-    {% endblock footer %}
+</div> <!-- end of slider-->
 
-    {% block scripts %}
-    <!-- Bootstrap -->
-    <script src="{% static 'vendor/jquery/1.12.2/jquery.min.js' %}">
+    </div> <!-- end of besth dishes-->
+
+</div> <!-- end of bestdishes wrapper-->
+
+
+    {% block footer %}
+    <div class="footerwrapper">
+
+    <footer class="container">
+
+    	<div class="customerreview">
+
+       		 <h2>Customer Reviews</h2>
+
+          <div class="review">
+
+              <p><strong>&#8220; </strong>The website is the first of its kind. Super Duper Utlra
+              mega Amazing. The style and responsiveness make me feel like browsing in a magazaine
+              <strong>&#8221;</strong></p>
+
+             
+
+             <h4>- JOHN ALVES</h4>
+
+            
+
+            
+
+        	</div> <!-- end of review-->
+
+             
+
+              <div class="clearfix"></div>
+
+              <div class="line"></div>
+
+              
+
+          <div class="review">
+
+              <p><strong>&#8220; </strong>The delivery time is so fast like i order at 11:30am and
+              my order arrives at 7pm in the evening!
+            <strong>&#8221;</strong></p>
+
+             
+
+             <h4>- CATHREINE JOHNES</h4>
+
+            
+
+            
+
+        	</div> <!-- end of review-->
+
+             
+
+              
+
+              
+
+            
+
+            
+
+        </div>
+
+        <div class="socialize">
+
+        
+
+      <h2>Socialize</h2>
+
+        <div class="socialimgs">
+
+            <a href="https://www.facebook.com/Mido.HHH"><img src="{% static 'images/fbhover.png' %}" width="68" height="68" class="acebook"
+
+           alt="fb"></a>
+
+            <a href="https://twitter.com/Mido_A7X"><img src="{% static 'images/twitterhover.png' %}" width="68" height="68" class="twitter"
+
+        alt="twitter"></a>
+
+            <a href="#"><img src="{% static 'images/youtubehover.png' %}" width="68" height="69" class="youtube" alt="youtube"></a>
+
+            <a href="#"><img src="{% static 'images/g+hover.png' %}" width="68" height="68" class="google" alt="g+"></a>
+
+            <a href="#"><img src="{% static 'images/message.png' %}" width="68" height="68" class="message" alt="message"></a>
+
+      </div> <!--end of social imgs-->
+
+      
+
+       </div>
+
+      
+
+      
+
+<div class="sendfeedback">
+
+  	  <h2>Send Feedback</h2>
+
+            <form>
+
+            <h6>Your Name:</h6>
+
+            <input type="text" class="yourname" >
+
+             <h6>Mobile Number :</h6>
+
+            <input type="text" class="mobilenumber">
+
+             <h6>Message :</h6>
+
+            <textarea></textarea>
+
+            
+
+            <button>SUBMIT </button>
+
+            </form>
+
+        </div> <!-- end of feedback-->
+    </footer> <!-- end of footer-->
+
+</div> <!-- end of footer-->
+    {% endblock footer %}
+    {% block bodyscripts %}
+     <script type="text/javascript">
+    $('.sliderwrapper .slider').glide({
+                autoplay: 7000,
+                        animationDuration: 3000,
+                                arrows: true,
+                                        });
     </script>
-    <script src="{% static 'vendor/bootstrap/3.3.6/js/bootstrap.min.js' %}">
+        <script type="text/javascript">
+    $('.bestdisheswrapper .slider').glide({
+                autoplay: false,
+                        animationDuration: 700,
+                                arrows: true,
+                                        navigation:false,
+     });
+        </script>
+    <script>
+  (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+                                                            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new
+      Date;
+    e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+      e.src='//www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+    ga('create','UA-52746336-1');ga('send','pageview');
+      var isCompleted = {};
+  function sampleCompleted(sampleName){
+          if (ga && !isCompleted.hasOwnProperty(sampleName)) {
+                    ga('send', 'event', 'WebCentralSample', sampleName, 'completed'); 
+                          isCompleted[sampleName] = true;
+                              }
+            }
     </script>
-    {% endblock scripts %}
+    {% endblock bodyscripts %}
 </body>
 </html>
