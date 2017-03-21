@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Sign Up{% endblock title %}
+
+{% block content %}
+<form method="POST" action="{% url 'home:signup_process' %}">
+	{% csrf_token %}
+	Username: <input type="text" name="user" id="user" pattern="[0-9a-zA-Z]+" title="Alphanumeric characters only." placeholder="Username..." required="true"><br>
+	Password: <input type="password" name="pwd" id="pwd" pattern="[0-9a-zA-Z]+" title="Alphanumeric characters only." placeholder="Password..." required="true"><br>
+	First name: <input type="text" name="fname" id="fname" pattern="[a-zA-Z]+" title="Letters only." placeholder="First name..." required="true"><br>
+	Last name: <input type="text" name="lname" id="lname" pattern="[a-zA-Z]+" title="Letters only." placeholder="Last name..." required="true"><br>
+	Email Address: <input type="email" name="email" placeholder="juandelacruz@yahoo.com"><br>
+	<input type="submit" value="Sign-up">
+	<input type="reset" value="Clear">
+</form>
+{% endblock content %}
