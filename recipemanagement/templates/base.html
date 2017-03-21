@@ -6,8 +6,6 @@
         {% block head_meta %}
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="viewport"
-              content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="HandheldFriendly" content="true">
         {% endblock head_meta %}
@@ -83,7 +81,9 @@ new WOW().init();
         <div>
             <h5 class="wow fadeInDown" data-wow-delay="0.8s">
                 {% block user %}
-                Welcome {{ user.username }} ! (<a href="{% url 'logout' %}">Log out</a>)</h1><br>¬                                             │
+                {% if user.is_authenticated %}
+                Welcome {{ user.username }} ! (<a href="{% url 'logout' %}">Log out</a>)</h1><br>
+            {% endif %}
                 {% endblock user %}
             </h5>
         </div>
@@ -270,7 +270,7 @@ new WOW().init();
 
       
 
-<div class="sendfeedback" id="contactus">
+ <div class="sendfeedback" id="contactus">
 
   	  <h2>Send Feedback</h2>
 
@@ -294,7 +294,7 @@ new WOW().init();
 
             </form>
 
-        </div> <!-- end of feedback-->
+</div> <!-- end of feedback-->
     </footer> <!-- end of footer-->
 
 </div> <!-- end of footer-->
