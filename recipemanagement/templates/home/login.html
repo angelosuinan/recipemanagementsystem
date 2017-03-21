@@ -3,10 +3,10 @@
 {% block content %}
 <form method="POST" action="{% url 'home:success' %}">
 	{% csrf_token %}
-	Username:<br>
-	<input type="text" name="user" id="user" pattern="[0-9a-zA-Z]+" title="Alphanumeric characters only." placeholder="Username" required="true"><br>
-	Password:<br>
-	<input type="password" name="pwd" id="pwd" pattern="[0-9a-zA-Z]+" title="Alphanumeric characters only." placeholder="Username" required="true"><br>
-	<input type="submit" value="Log-in">
+	<input type="text"  name="user" id="user" pattern="[0-9a-zA-Z]+" title="Alphanumeric characters only." placeholder="Username..." class="name wow zoomIn animated" required="true" style="visibility: visible; animation-name: zoomIn; color: rgb(255, 255, 255);">
+    <input type="password" name="pwd" id="pwd" pattern="[0-9a-zA-Z]+" title="Alphanumeric characters only."  placeholder="Password..."class="email wow zoomIn animated" style="visibility: visible; animation-name: zoomIn; color: rgb(255, 255, 255);">
+<button type="submit" class="booknow wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;"> SUBMIT </button>
+<button type="reset" class="booknow wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;"> RESET </button>
+
 </form>
 {% endblock content %}
