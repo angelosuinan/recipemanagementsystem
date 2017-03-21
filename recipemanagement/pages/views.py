@@ -33,7 +33,7 @@ class recipe_list(View):
 		return render(request, 'recipe/recipe_list.html', {'recipes': recipes})
 	def post(self, request, *args, **kwargs):
 		query = self.request.POST.get('q')
-		if len(query) <4 :
+		if len(query) < 4 :
 			return render(request, 'home/index.html', )
 		search = Recipe.objects.filter(name__contains=query)
 		return render(request, 'recipe/recipe_list.html', {'recipes': search})
@@ -41,10 +41,9 @@ store = ""
 class recipe_search(View):
 	query = ""
 	def get(self, request, *args, **kwargs):
-		print (self.query)
 		if self.request.GET.get('q'):
-			self.query =self.request.GET.get('q')
-			if len(self.query) <4 :
+			self.query = self.request.GET.get('q')
+			if len(self.query) < 4 :
 				return render(request, 'home/index.html', )
 			recipes_list = Recipe.objects.filter(name__contains=self.query)
 			global store

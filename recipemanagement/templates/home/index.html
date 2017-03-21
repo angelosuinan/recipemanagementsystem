@@ -2,11 +2,24 @@
 {% block title %}Home{% endblock title %}
 
 {% block content %}
-
- <form class="inline-form" action="{% url 'pages:recipe_search' %}" method="get">
-                    {% csrf_token %}
-        <input type="text" class="form-control clear-focus-highlight" id="q"
-                        name="q" placeholder="Take a note...">
-        <input class="btn btn-raised btn-primary btn-sm" type="submit" value="create">
-                </form>
+{% if user.is_authenticated %}
+    <h1>Welcome {{ user.username }} ! (<a href="{% url 'logout' %}">Log out</a>)</h1><br>
+{% else %}
+    <h1>Welcome</h1>
+{% endif %}
+<form class="inline-form" action="{% url 'pages:recipe_search' %}" method="get">
+	{% csrf_token %}
+	<input type="text" class="form-control clear-focus-highlight" id="q" name="q" placeholder="Search recipe here...">
+	<input class="btn btn-raised btn-primary btn-sm" type="submit" value="Search">
+</form>
+<br>
+<form method="POST" action="{% url 'home:signin' %}">
+	{% csrf_token %}
+	Username:<br>
+	<input type="text" name="user" id="user" pattern="[0-9a-zA-Z]+" title="Alphanumeric characters only." placeholder="Username" required="true"><br>
+	Password:<br>
+	<input type="password" name="pwd" id="pwd" pattern="[0-9a-zA-Z]+" title="Alphanumeric characters only." placeholder="Username" required="true"><br>
+	<input type="submit" value="Log-in">
+	<a href="signup.html"><input type="button" value="Sign-up"></a>
+</form>
 {% endblock content %}
