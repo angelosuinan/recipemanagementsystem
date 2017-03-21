@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}Sign In {% endblock title %}
+{% block content %}
+<form method="POST" action="{% url 'home:success' %}">
+	{% csrf_token %}
+	Username:<br>
+	<input type="text" name="user" id="user" pattern="[0-9a-zA-Z]+" title="Alphanumeric characters only." placeholder="Username" required="true"><br>
+	Password:<br>
+	<input type="password" name="pwd" id="pwd" pattern="[0-9a-zA-Z]+" title="Alphanumeric characters only." placeholder="Username" required="true"><br>
+	<input type="submit" value="Log-in">
+</form>
+{% endblock content %}

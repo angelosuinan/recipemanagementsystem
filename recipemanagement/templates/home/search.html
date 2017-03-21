@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+
+{% block content_title %}
+SEARCH
+{% endblock content_title %}
+{% block content %}
+<form class="inline-form" action="{% url 'pages:recipe_search' %}" method="get">
+    {% csrf_token %}
+    
+        <input type="text" id="q" name="q" class="name wow zoomIn animated" placeholder="recipe name"
+                                                            style="visibility: visible;
+                                                            animation-name: zoomIn; color: rgb(0, 0,
+                                                            0);">
+       
+            <button class="booknow wow fadeInUp animated" style="visibility: visible;
+            animation-name:
+        fadeInUp; width:50%; font-size:90%;" type="submit"> Search </button>
+    </form>
+{% endblock content %}

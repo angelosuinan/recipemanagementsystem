@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from django.views.generic import View
 from products.models import Recipe
 from django.http import HttpResponseRedirect
-from .forms import DataForm
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.db import IntegrityError
@@ -46,7 +45,10 @@ class signup_process(View):
 				return render(request, 'home/error.html',)
 
 class signin(View):
-	def post(self, request, *args, **kwargs):
+    def get(self, request, *args, **kwargs):
+        return render(request, 'home/login.html',)
+
+    def post(self, request, *args, **kwargs):
 		if request.method == 'POST':
 			usern = self.request.POST.get('user', None)
 			pwd = self.request.POST.get('pwd', None)
@@ -56,3 +58,19 @@ class signin(View):
 				return render(request, 'home/index.html', {'user': user})
 			else:
 				return render(request, 'home/error.html',) 
+class success(View):
+     def get(self, request, *args, **kwargs):
+         return render(request, 'home/index.html',)
+     def post(self, request, *args, **kwargs):
+		if request.method == 'POST':
+			usern = self.request.POST.get('user', None)
+			pwd = self.request.POST.get('pwd', None)
+			user = authenticate(username=usern, password=pwd)
+			if user is not None:
+				login(request, user)
+				return render(request, 'home/index.html', {'user': user})
+			else:
+				return render(request, 'home/error.html',)
+class search(View):
+    def get(self, request, *args, **kwargs):
+        return render(request, 'home/search.html')
