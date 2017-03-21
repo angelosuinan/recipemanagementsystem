@@ -1,15 +1,21 @@
 {% extends 'base.html' %}
 {% block title %}Sign Up{% endblock title %}
-
+{% block content_title %}Sign Up{% endblock content_title %}
 {% block content %}
 <form method="POST" action="{% url 'home:signup_process' %}">
 	{% csrf_token %}
-	Username: <input type="text" name="user" id="user" pattern="[0-9a-zA-Z]+" title="Alphanumeric characters only." placeholder="Username..." required="true"><br>
-	Password: <input type="password" name="pwd" id="pwd" pattern="[0-9a-zA-Z]+" title="Alphanumeric characters only." placeholder="Password..." required="true"><br>
-	First name: <input type="text" name="fname" id="fname" pattern="[a-zA-Z]+" title="Letters only." placeholder="First name..." required="true"><br>
-	Last name: <input type="text" name="lname" id="lname" pattern="[a-zA-Z]+" title="Letters only." placeholder="Last name..." required="true"><br>
-	Email Address: <input type="email" name="email" placeholder="juandelacruz@yahoo.com"><br>
-	<input type="submit" value="Sign-up">
-	<input type="reset" value="Clear">
-</form>
+	
+    <input type="text"  name="user" id="user" pattern="[0-9a-zA-Z]+" title="Alphanumeric characters only." placeholder="Username..." class="name wow zoomIn animated" required="true" style="visibility: visible; animation-name: zoomIn; color: rgb(255, 255, 255);">
+    <input type="password" name="pwd" id="pwd" pattern="[0-9a-zA-Z]+" title="Alphanumeric characters only."  placeholder="Password..."class="email wow zoomIn animated" style="visibility: visible; animation-name: zoomIn; color: rgb(255, 255, 255);">
+    <input type="text" name="fname" id="fname" pattern="[a-zA-Z]+" title="Letters only." placeholder="First name..." required="true" class="from wow zoomIn animated" style="visibility: visible; animation-name: zoomIn;">
+    <input type="text" name="lname" id="lname" pattern="[a-zA-Z]+" title="Letters only." placeholder="Last name..." required="true"class="to wow zoomIn animated"style="visibility: visible; animation-name: zoomIn; color: rgb(255, 255, 255);">
+    <input type="email" name="email" placeholder="juandelacruz@yahoo.com" class="persons wow zoomIn animated" placeholder="Number of persons" style="visibility: visible; animation-name: zoomIn;">
+    
+   
+    
+    <button type="submit" class="booknow wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;"> SUBMIT </button>
+<button type="reset" class="booknow wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;"> RESET </button>
+
+    
+    </form>
 {% endblock content %}
