@@ -8,10 +8,17 @@
         <p>{{ recipe.servings }}</p><br>
         <p>{{ recipe.direction }}</p><br>
         <p>{{ recipe.ingredients }}</p><br>
-        
-{% for product in products %}
-        <p>{{ product.name }}</p><br>
-       {% endfor %}
-
+        <center><table><form>
+        {% for product in products %}
+            <tr>
+            <td>{{ product.name }}</td> 
+            <td><input type="checkbox"></td>
+            </tr>
+        {% endfor %}
+            <tr>
+                <td align="center"><input type="submit" value="Buy"></td>
+            </tr>
+        </form>
+        </table></center>
     </div>
 {% endblock %}
