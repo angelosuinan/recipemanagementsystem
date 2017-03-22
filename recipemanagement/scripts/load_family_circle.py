@@ -1,11 +1,13 @@
 #full path and name to your csv file
-csv_filepathname="/home/suinan/projects/pyscrapy/pyscrapy/pyscrapy/a.csv"
-import django
+import os
+__location__ = os.path.realpath(
+            os.path.join(os.getcwd(), os.path.dirname(__file__)))
+f = __location__+"/a.csv"
 from products.models import Recipe
 from products.models import Product
+import django
 import csv
-dataReader = csv.reader(open(csv_filepathname), delimiter=',', quotechar='"')
-dataReader
+dataReader = csv.reader(open(f), delimiter=',', quotechar='"')
 
 import random
 for row in dataReader:
