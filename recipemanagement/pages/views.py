@@ -20,7 +20,7 @@ class Index(View):
 class recipe_list(View):
 	def get(self, request, *args, **kwargs):
 		recipe_list = Recipe.objects.all()
-		paginator = Paginator(recipe_list, 10)
+		paginator = Paginator(recipe_list, 12)
 		page = request.GET.get('page')
 		try:
 		    recipes = paginator.page(page)
@@ -50,7 +50,7 @@ class recipe_search(View):
 			store = self.query
 		else:
 			recipes_list = Recipe.objects.filter(name__contains=store)
-		paginator = Paginator(recipes_list, 10)
+		paginator = Paginator(recipes_list, 11)
 		page = request.GET.get('page')
 		try:
 		    recipes = paginator.page(page)
