@@ -283,7 +283,8 @@ float:left; margin-left:45px;}
 
  
 /************************ FOOTER *****************************/
-.footerwrapper{height:530px; width:1350px; background:#252b33; margin-top:-1250px; border-top:4px solid #a8aaad;}
+/************************ FOOTER *****************************/
+.footerwrapper{height:530px; background:#252b33; margin-top:-50px; border-top:4px solid #a8aaad;}
 footer{text-align:center; }
 footer h2{font-family:OSWALD-regular; font-size:20px; color:#dedede;}
 
@@ -312,7 +313,7 @@ footer h2{margin-bottom:40px;}
 
 /**** feedback*****/
 
-.sendfeedback{width:366px;  float:right; margin-top:0px; margin-bottom:30px; text-align:left;}
+.sendfeedback{width:366px;  float:right; margin-top:30px; margin-bottom:30px; text-align:left;}
 .sendfeedback h2{ margin-left:3px;}
 .sendfeedback form{}
 .sendfeedback form input[type='text']{width:367px; height:57px; border-radius:5px; border:1px solid #0a131f; 
@@ -339,7 +340,6 @@ height:29px; border:0px; border-radius:4px; margin-top:20px; cursor:pointer; }
   #copyrights a{text-decoration:none; color:#a3c9e7;}
   #copyrights p{ animation: shake 5s infinite; -webkit-animation:shake 5s infinite; text-align:center;}
   #copyrights p:hover{}
-
  /*||||||||||||||||||||||||||||||||| ANIMATIONS ||||||||||||||||||||||||||||||*/
 
  
