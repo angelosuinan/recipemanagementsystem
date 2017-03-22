@@ -24,7 +24,7 @@ class Index(View):
 
 class signup(View):
 	def get(self, request, *args, **kwargs):
-		return render(request, 'home/login.html',)
+		return render(request, 'home/signup.html',)
 
 class signup_process(View):
         def get(self, request, *args, **kwargs):
@@ -47,7 +47,7 @@ class signup_process(View):
 				return render(request, 'home/error.html',)
 class signin(View):
     def get(self, request, *args, **kwargs):
-        return render(request, 'home/index.html',)
+        return render(request, 'home/login.html',)
 
     def post(self, request, *args, **kwargs):
 		if request.method == 'POST':
