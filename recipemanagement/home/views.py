@@ -24,11 +24,13 @@ class Index(View):
 
 class signup(View):
 	def get(self, request, *args, **kwargs):
-		return render(request, 'home/signup.html',)
+		return render(request, 'home/login.html',)
 
 class signup_process(View):
+        def get(self, request, *args, **kwargs):
+            return render(request, 'home/index.html',)
 	def post(self, request, *args, **kwargs):
-		if request.method == 'POST': 
+		if request.method == 'POST':
 			try:
 				usern = self.request.POST.get('user', None)
 				pwd = self.request.POST.get('pwd', None)
@@ -40,13 +42,12 @@ class signup_process(View):
 				user.last_name = lname
 				user.save()
 				if(authenticate(username=usern, password=pwd)):
-					return render(request, 'home/success.html',)
+					return render(request, 'home/index.html',)
 			except(IntegrityError):
 				return render(request, 'home/error.html',)
-
 class signin(View):
     def get(self, request, *args, **kwargs):
-        return render(request, 'home/login.html',)
+        return render(request, 'home/index.html',)
 
     def post(self, request, *args, **kwargs):
 		if request.method == 'POST':
