@@ -1,24 +1,27 @@
 {% extends 'base.html' %}
-
+{% block content_title %} {{ recipe.name }} {% endblock content_title %}
 {% block content %}
     <div class="recipe">
-        <h1>{{ recipe.name }}</h1><br>
-        <p>{{ recipe.description }}</p><br>
-        <p>{{ recipe.prep_time }}</p><br>
-        <p>{{ recipe.servings }}</p><br>
-        <p>{{ recipe.direction }}</p><br>
-        <p>{{ recipe.ingredients }}</p><br>
+    <div class="item2">
+        <img src="{{ recipe.img_url }}" width = "300" height="301"  >
+    </div>
+        <p style="color:white;">{{ recipe.description }}</p><br>
+        <p style= "color:white;">{{ recipe.prep_time }}</p><br>
+        <p style = "color:white;">{{ recipe.servings }}</p><br>
+        <p style = "color:white;">{{ recipe.direction }}</p><br>
+        </div>
         <center><table><form>
         {% for product in products %}
             <tr>
-            <td>{{ product.name }}</td> 
-            <td><input type="checkbox"></td>
+            <td style="color:white;">{{ product.name }}</td>
+            <td><input type="checkbox" id="products"></td>
             </tr>
         {% endfor %}
             <tr>
-                <td align="center"><input type="submit" value="Buy"></td>
+                <td align="center"><button class="booknow wow fadeInUp animated animated"
+                        style="visibility: visible; animation-name: fadeInUp; width: 120%; font-size:
+                        90%;" type="submit"> BUY </button></td>
             </tr>
         </form>
         </table></center>
-    </div>
 {% endblock %}
