@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content_title %}CHECKOUT{% endblock content_title %}
+{% block content %}
+<p style="color:white;">{{recipe.name}}</p>
+<center>
+<table>
+{% for product in products %}
+             <tr>
+        <td style="color:white;"><span id='total'>{{product.price}}php</span>&nbsp;{{ product.name }}</td>
+                     {% endfor %}
+             </tr>
+            <tr>
+                <form class="inline-form" action="{% url 'pages:recipe_search' %}" method="get">
+                        {% csrf_token %}
+                        <td><input type="text" id="q" name="q" class="email wow zoomIn animated animated"
+                placeholder="shipping address"
+                style="visibility:visible;animation-name:zoomIn;color:rgb(0, 0, 0);"><td>
+            </tr>
+            <tr>
+                <p style="color:white">{{ total }} php</p>
+            </tr>
+            <tr>
+                <td align="center"><button class="booknow wow fadeInUp animated animated"
+                style="visibility: visible; animation-name: fadeInUp; width: 120%; font-size:90%;" 
+                type="submit"> CHECKOUT</button>
+                </td>
+            </tr>
+                </form>
+            </tr>
+     </table> </center>
+{% endblock content %}

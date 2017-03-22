@@ -10,11 +10,15 @@
         <p style = "color:white;">{{ recipe.servings }}</p><br>
         <p style = "color:white;">{{ recipe.direction }}</p><br>
         </div>
-        <center><table><form>
+        <center><table>
+                <form action="{% url 'pages:recipe_buy' pk=recipe.pk %}" method="get">
+                    {% csrf_token %}
+                    <input type="text" id="q" name="q" value="{{recipe.pk}}" >
         {% for product in products %}
             <tr>
-            <td style="color:white;">{{ product.name }}</td>
-            <td><input type="checkbox" id="products"></td>
+                <td style="color:white;"><span id='total'>{{product.price}}php</span>&nbsp;
+                    {{ product.name }}</td>
+            <td><input type="checkbox" name="products" id="{{ recipe.pk }}" checked></td>
             </tr>
         {% endfor %}
             <tr>
