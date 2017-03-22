@@ -128,7 +128,7 @@ float:left; margin-left:45px;}
 
 /*||||||||||||||||||||||||||||||||| BEST DISHES ||||||||||||||||||||||||||||||*/
 
-.bestdisheswrapper{height:900px; width:1350px; margin:0px; background:url(../images/www3.jpg) no-repeat center center fixed; background-size:cover; border-top:3px solid rgba(255,153,0,0.2);
+.bestdisheswrapper{height:940px; width:1350px; margin:0px; background:url(../images/www3.jpg) no-repeat center center fixed; background-size:cover; border-top:3px solid rgba(255,153,0,0.2);
  border-bottom:3px solid rgba(255,153,0,0.4);  text-align:center;}
  .bestdishes{}
  .bestdisheswrapper #bestdishes h2 {color:white; font-size:35px;  letter-spacing:3px; font-family:Economica-bold;; margin-top:30px;}
@@ -283,7 +283,7 @@ float:left; margin-left:45px;}
 
  
 /************************ FOOTER *****************************/
-.footerwrapper{height:530px; width:1350px; background:#252b33; margin-top:-50px; border-top:4px solid #a8aaad;}
+.footerwrapper{height:530px; width:1350px; background:#252b33; margin-top:-1250px; border-top:4px solid #a8aaad;}
 footer{text-align:center; }
 footer h2{font-family:OSWALD-regular; font-size:20px; color:#dedede;}
 
@@ -484,5 +484,4 @@ height:29px; border:0px; border-radius:4px; margin-top:20px; cursor:pointer; }
         #container { width: 80%; }
         .bestdisheswrapper {width: 400% }
         .footerwrapper {width: 400%}
-        
     }

@@ -5,8 +5,7 @@
 	{% for recipe in recipes %}
     <div class="item3">
     <li class="slide" style="position:relative; left:-330px;">
-        <img src="{{recipe.img_url}}" width="226" height="225" alt="sliderimg" class="wowflipInX">
-       
+        <img src="{{recipe.img_url}}" width="126" height="125" alt="sliderimg" class="wowflipInX">
         <a href="{% url 'pages:recipe_detail' pk=recipe.pk %}"> <h4>{{ recipe.name}}{{loop.counter}}</h4></a>
     </li>
     </div>
