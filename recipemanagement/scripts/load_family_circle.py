@@ -10,7 +10,7 @@ import csv
 dataReader = csv.reader(open(f), delimiter=',', quotechar='"')
 import random
 for row in dataReader:
-   try:
+    try:
         if row[0] == 'direction':
 	    print ("SDFDFAS")
 	    continue
@@ -35,5 +35,5 @@ for row in dataReader:
                 old = Product.objects.get(name=pr)
                 recipe.products.add(old)
         recipe.save()
-   except  django.db.utils.IntegrityError:
+    except django.db.utils.IntegrityError:
         continue
