@@ -4,28 +4,32 @@
 <p style="color:white;">{{recipe.name}}</p>
 <center>
 <table>
+
+            <tr>
+                <p style="color:white">{{ total }} php</p>
+            </tr>
+
 {% for product in products %}
              <tr>
         <td style="color:white;"><span id='total'>{{product.price}}php</span>&nbsp;{{ product.name }}</td>
                      {% endfor %}
              </tr>
             <tr>
-                <form class="inline-form" action="{% url 'account:index' %}" method="get">
+                <td>
+                <form class="inline-form" action="{% url 'account:index'  %}" method="post">
                         {% csrf_token %}
-                        <td><input type="text" id="q" name="q" class="email wow zoomIn animated animated"
+
+                        <input type="text" id="a" name="a" value="{{total}}"
+                        style="display:none">
+                        <input type="text" id="q" name="q" class="email wow zoomIn animated animated"
                 placeholder="shipping address"
-                style="visibility:visible;animation-name:zoomIn;color:rgb(0, 0, 0);" required><td>
-            </tr>
-            <tr>
-                <p style="color:white">{{ total }} php</p>
-            </tr>
-            <tr>
-                <td align="center"><button class="booknow wow fadeInUp animated animated"
+                style="visibility:visible;animation-name:zoomIn;color:rgb(0, 0, 0);" required>
+            <button class="booknow wow fadeInUp animated animated"
                 style="visibility: visible; animation-name: fadeInUp; width: 120%; font-size:90%;" 
                 type="submit"> CHECKOUT</button>
                 </td>
-            </tr>
+
                 </form>
             </tr>
-     </table> </center>
+    </table> </center>
 {% endblock content %}

@@ -97,3 +97,5 @@ class recipe_buy(View):
                 total += products.price
             context['total'] = total
         return render(request, self.template, context )
+    def post (self,request, *args, **kwargs):
+        return render(request, self.template)
