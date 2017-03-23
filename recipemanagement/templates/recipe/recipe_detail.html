@@ -6,14 +6,13 @@
         <img src="{{ recipe.img_url }}" width = "300" height="301"  >
     </div>
         <p style="color:white;">{{ recipe.description }}</p><br>
-        <p style= "color:white;">{{ recipe.prep_time }}</p><br>
-        <p style = "color:white;">{{ recipe.servings }}</p><br>
+        <p style= "color:white;">Prep Time: {{ recipe.prep_time }}</p><br>
+        <p style = "color:white;">Servings: {{ recipe.servings }}</p><br>
         <p style = "color:white;">{{ recipe.direction }}</p><br>
         </div>
         <center><table>
                 <form action="{% url 'pages:recipe_buy' pk=recipe.pk %}" method="get">
                     {% csrf_token %}
-                    <input type="text" id="q" name="q" value="{{recipe.pk}}" >
         {% for product in products %}
             <tr>
                 <td style="color:white;"><span id='total'>{{product.price}}php</span>&nbsp;

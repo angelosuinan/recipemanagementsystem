@@ -4,9 +4,11 @@
 <ul class="slides">
 	{% for recipe in recipes %}
     <div class="item3">
-    <li class="slide" style="position:relative; left:-330px;">
-        <img src="{{recipe.img_url}}" width="126" height="125" alt="sliderimg" class="wowflipInX">
-        <a href="{% url 'pages:recipe_detail' pk=recipe.pk %}"> <h4>{{ recipe.name}}{{loop.counter}}</h4></a>
+    <li class="slide" style="position:relative; left: 20px;">
+
+         <a href="{% url 'pages:recipe_detail' pk=recipe.pk %}"style="color:white"> 
+       <img src="{{recipe.img_url}}" width="126" height="125" alt="sliderimg" class="wowflipInX">
+        <h4>{{ recipe.name}}{{loop.counter}}</h4></a>
     </li>
     </div>
 	{% endfor %}
@@ -16,7 +18,7 @@
 	<div class="pagination">
 	    <span class="step-links">
 	        {% if recipes.has_previous %}
-	            <a href="?page={{ recipes.previous_page_number }}">previous</a>
+	            <a href="?page={{ recipes.previous_page_number }}"style="color:white">previous</a>
 	        {% endif %}
 
 	        <span class="current">
@@ -24,7 +26,7 @@
 	        </span>
 
 	        {% if recipes.has_next %}
-	            <a href="?page={{ recipes.next_page_number }}">next</a>
+	            <a href="?page={{ recipes.next_page_number }}" style="color:white">next</a>
 	        {% endif %}
 	    </span>
 	</div>
