@@ -1,7 +1,7 @@
 from products.models import Recipe, Product
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, get_object_or_404
-
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 from django.shortcuts import render, redirect
@@ -75,27 +75,29 @@ class recipe_detail(View):
 class recipe_buy(View):
     template='recipe/buy.html'
     def get (self, request, *args, **kwargs):
-        #add if a user is login 
-        if self.request.GET.getlist('products'):
-            on = self.request.GET.getlist('products')
-            context={}
-            pk = kwargs.get('pk')
-            recipe = get_object_or_404(Recipe, pk=pk)
-            context ={}
-            context['recipe'] = recipe
-            products = recipe.products.all()
-            x = 0
-            p = []
-            for product in products:
-                print product
-                if on[x]=='on':
-                    p.append(product)
-                x+=1
-            context['products'] = p
-            total =0
-            for products in p:
-                total += products.price
-            context['total'] = total
-        return render(request, self.template, context )
+        if request.user.is_authenticated:
+            if self.request.GET.getlist('products'):
+                on = self.request.GET.getlist('products')
+                context={}
+                pk = kwargs.get('pk')
+                recipe = get_object_or_404(Recipe, pk=pk)
+                context ={}
+                context['recipe'] = recipe
+                products = recipe.products.all()
+                x = 0
+                p = []
+                for product in products:
+                    print product
+                    if on[x]=='on':
+                        p.append(product)
+                    x+=1
+                context['products'] = p
+                total =0
+                for products in p:
+                    total += products.price
+                context['total'] = total
+            return render(request, self.template, context )
+        else:
+            return render(request, 'home/login.html',)
     def post (self,request, *args, **kwargs):
         return render(request, self.template)

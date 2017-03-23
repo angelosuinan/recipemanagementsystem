@@ -6,7 +6,7 @@ from decimal import Decimal
 from core.models import Base
 
 class Account(Base):
-    name = models.CharField(max_length=500, unique=True,)
+    name = models.CharField(max_length=500,)
     price = models.DecimalField(max_digits=1000,decimal_places=2,default=Decimal('0'))
     order = models.CharField(max_length=4000,)
     f_name = models.CharField(max_length=500,)
