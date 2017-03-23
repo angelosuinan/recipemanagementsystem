@@ -87,10 +87,9 @@ class recipe_buy(View):
                 x = 0
                 p = []
                 for product in products:
-                    print product
-                    if on[x]=='on':
+                    if  x<len(on) and on[x]=="on":
                         p.append(product)
-                    x+=1
+                        x+=1
                 context['products'] = p
                 total =0
                 for products in p:
