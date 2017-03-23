@@ -10,11 +10,11 @@
                      {% endfor %}
              </tr>
             <tr>
-                <form class="inline-form" action="{% url 'pages:recipe_search' %}" method="get">
+                <form class="inline-form" action="{% url 'account:index' %}" method="get">
                         {% csrf_token %}
                         <td><input type="text" id="q" name="q" class="email wow zoomIn animated animated"
                 placeholder="shipping address"
-                style="visibility:visible;animation-name:zoomIn;color:rgb(0, 0, 0);"><td>
+                style="visibility:visible;animation-name:zoomIn;color:rgb(0, 0, 0);" required><td>
             </tr>
             <tr>
                 <p style="color:white">{{ total }} php</p>

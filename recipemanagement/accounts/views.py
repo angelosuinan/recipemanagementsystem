@@ -8,7 +8,7 @@ class Index(View):
     """
                     https://docs.djangoproject.com/en/1.9/topics/class-based-views/intro/
     """
-    template_name = 'home/index.html'
+    template_name = 'account/index.html'
     def get(self, request, *args, **kwargs):
         return render(request, self.template_name,)
     def post(self, request, *args,**kwargs):
