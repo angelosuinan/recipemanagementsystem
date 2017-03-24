@@ -1,4 +1,12 @@
 {% extends 'base.html' %}
+{% block custom_meta %}
+<meta property="og:url"content="https://tapshoprecipe.herokuapp.com/products/recipe/{{recipe.pk}}" />
+
+    <meta property="og:title"         content="Tap and Shop" />
+    <meta property="og:description"   content="{{recipe.servings}}" />
+    <meta property="og:image"         content="{{recipe.img_url}}" />
+{% endblock custom_meta %}
+{% block title %}{{recipe.name}}{% endblock title %}
 {% block content_title %} {{ recipe.name }} {% endblock content_title %}
 {% block content %}
     <div class="recipe">
@@ -26,5 +34,23 @@
                         90%;" type="submit"> BUY </button></td>
             </tr>
         </form>
-        </table></center>
+        <tr>
+                    </tr>
+        </table>
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.8";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+        <div class="fb-share-button"
+             data-href="https://tapshoprecipe.herokuapp.com/products/recipe/{{recipe.pk}}"
+                                     data-layout="button_count" data-size="small"
+                                     data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore"
+                                target="_blank"
+                                href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Ftapshoprecipe%3A8000%2Fproducts%2Frecipe%2F{{recipe.pk}}%2F&amp;src=sdkpreparse">Share</a></div>
+
+        </center>
 {% endblock %}
